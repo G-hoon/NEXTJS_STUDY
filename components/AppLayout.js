@@ -1,15 +1,35 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { Input, Menu, Row, Col } from 'antd';
 
 const AppLayout = ({ children }) => {
     return (
         <div>
-            <div>
-                <Link href="/"><a>홈</a></Link>
-                <Link href="/profile"><a>프로필</a></Link>
-                <Link href="/signup"><a>회원가입</a></Link>
-            </div>
-            <div>공통메뉴</div>
+            <Menu mode="horizontal">
+                <Menu.Item key="home">
+                    <Link href="/"><a>홈</a></Link>
+                </Menu.Item>
+                <Menu.Item key="profile">
+                    <Link href="/profile"><a>프로필</a></Link>
+                </Menu.Item>
+                <Menu.Item key="search">
+                    <Input.Search enterButton style={{ verticalAlign: 'middle' }} />
+                </Menu.Item>
+                <Menu.Item key="signup">
+                    <Link href="/signup"><a>회원가입</a></Link>
+                </Menu.Item>
+            </Menu>
+            {/* column 사이 간격: gutter */}
+            <Row gutter={8}>
+                <Col xs={24} md={6}>
+                </Col>
+                <Col xs={24} md={12}>
+                    가운데 메뉴
+                </Col>
+                <Col xs={24} md={6}>
+                    오른쪽 메뉴
+                </Col>
+            </Row>
             {children}
         </div>
     )
