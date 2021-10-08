@@ -11,7 +11,6 @@ const SearchInput = styled(Input.Search)`
 `;
 
 const AppLayout = ({ children }) => {
-    // ToDo
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     return (
         <div>
@@ -32,16 +31,15 @@ const AppLayout = ({ children }) => {
             {/* column 사이 간격: gutter */}
             <Row gutter={8}>
                 <Col xs={24} md={6}>
-                    {isLoggedIn ?  <UserProfile /> : <LoginForm /> }
+                    {isLoggedIn ?  <UserProfile setIsLoggedIn={setIsLoggedIn} /> : <LoginForm setIsLoggedIn={setIsLoggedIn} /> }
                 </Col>
                 <Col xs={24} md={12}>
-                    가운데 메뉴
+                    {children}
                 </Col>
                 <Col xs={24} md={6}>
                     오른쪽 메뉴
                 </Col>
             </Row>
-            {children}
         </div>
     )
 }
