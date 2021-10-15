@@ -2,8 +2,8 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { Input, Menu, Row, Col } from 'antd';
-import UserProfile from '../components/UserProfile';
-import LoginForm from '../components/LoginForm';
+import UserProfile from './UserProfile';
+import LoginForm from './LoginForm';
 import styled from 'styled-components';
 
 const SearchInput = styled(Input.Search)`
@@ -34,6 +34,7 @@ const AppLayout = ({ children }) => {
                     {isLoggedIn ?  <UserProfile setIsLoggedIn={setIsLoggedIn} /> : <LoginForm setIsLoggedIn={setIsLoggedIn} /> }
                 </Col>
                 <Col xs={24} md={12}>
+                    {isLoggedIn ?  <UserProfile setIsLoggedIn={setIsLoggedIn} /> : '' }
                     {children}
                 </Col>
                 <Col xs={24} md={6}>

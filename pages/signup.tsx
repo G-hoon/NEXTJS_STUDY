@@ -8,7 +8,6 @@ const ErrorMessage = styled.div`
     color: red
 `
 
-
 const Signup = () => {
     const [id, onChangeId] = useInput('');
     const [nickname, onChangeNickname] = useInput('');
@@ -21,13 +20,13 @@ const Signup = () => {
         setPasswordError(e.target.value !== password);
     },[password]);
 
-    const [term, setTerm] = useState('');
+    const [term, setTerm] = useState(false);
     const [termError, setTermError] = useState(false);
     const onChangeTerm = useCallback((e) => {
         console.log('e: ', e);
         setTerm(e.target.checked);
         setTermError(false);
-    });
+    }, []);
 
     const onSubmit = useCallback(() => {
         console.log('onSubmit:  ', term)
